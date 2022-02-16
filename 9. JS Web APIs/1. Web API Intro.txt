@@ -1,0 +1,15 @@
+What is Web API?
+API stands for Application Programming Interface.
+A Web API is a developer's dream.
+It can extend the functionality of the browser
+It can greatly simplify complex functions
+It can provide easy syntax to complex code
+
+
+Third Party APIs
+Third party APIs are not built into your browser.
+To use these APIs, you will have to download the code from the Web.
+Examples:
+YouTube API - Allows you to display videos on a web site.
+Twitter API - Allows you to display Tweets on a web site.
+Facebook API - Allows you to display Facebook info on a web site.

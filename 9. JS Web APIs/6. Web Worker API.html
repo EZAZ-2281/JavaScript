@@ -1,0 +1,36 @@
+Web Workers API
+A web worker is a JavaScript running in the background, without affecting the performance of the page.
+To terminate a web worker, and free browser/computer resources, use the terminate() method
+If you set the worker variable to undefined, after it has been terminated, you can reuse the code
+The important part of the code above is the postMessage() method - which is used to post a message back to the HTML page.
+.html file
+<body>
+    <p>Start count: <output id="result"></output> </p>
+    <button onclick="startFunc()">Start</button>
+    <button onclick="stopFunc()">Stop</button>
+    <script>
+        let w; 
+        function startFunc(){
+            if(typeof(w) == "undefined"){
+                w = new Worker("demo.js"); 
+            }
+            w.onmessage = function(event){
+                document.getElementById("result").innerHTML = event.data; 
+            }; 
+        }
+        function stopFunc(){
+            w.terminate(); 
+            w = undefined; 
+        }
+    </script>
+</body>
+.js file
+let i = 0;
+function myFunc(){
+    i++; 
+    postMessage(i); 
+    setTimeout("myFunc()", 500); 
+} 
+myFunc(); 
+
+***************************

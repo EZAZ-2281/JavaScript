@@ -1,0 +1,44 @@
+<body onload="checkCookie()">
+    <script>
+        function setCookie(cname, cvalue, eDays){
+            let d = new Date(); 
+            d.setTime(d.getTime() + (eDays*24*60*60*1000)); 
+            let expires = "Expires"+d.toUTCString(); 
+            document.cookie = cname+"="+cvalue+";"+expires; 
+        }
+        function getCookie(cname){
+            let name = cname + "="; 
+            let decode = decodeURIComponent(document.cookie); 
+            let a = decode.split(";"); 
+            for(let i = 0; i < a.length; i++){
+                let c = a[i]; 
+                while(c.charAt(0) == ' '){
+                    c = c.substring(i); 
+                }
+                if(c.indexOf(name) == 0){
+                    return c.substring(name.length, c.length); 
+                }
+            }
+            return ""; 
+        }
+        function checkCookie(){
+            let user = getCookie("userName"); 
+            if(user != ""){
+                alert("Welcome again "+user); 
+            }
+            else{
+                user = prompt("Please enter your name: ");
+                if(user != "" && user != null){
+                    setCookie("userName", user, 30); 
+                } 
+            }
+        }
+    </script>
+</body>
+
+
+
+
+/*
+    For better understanding visit this link: https://www.w3schools.com/js/js_cookies.asp
+*/

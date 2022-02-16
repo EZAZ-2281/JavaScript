@@ -1,0 +1,47 @@
+The JavaScript call() Method
+This example calls the fullName method of person, using it on person1:
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        let person = {
+            fullName: function(){
+                let f = this.fName+" "+this.lName; 
+                return f; 
+            }
+        }
+        let person1 = {
+            fName: "Golam", 
+            lName: "kibria"
+        }
+        let person2 = {
+            fName: "Al",
+            lName: "Amin"
+        }
+        let x = document.getElementById("gk"); 
+        x.innerHTML = person.fullName.call(person1); 
+        //x.innerHTML = person.fullName.call(person2); 
+    </script>
+</body>
+***
+The call() Method with Arguments
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        let person = {
+            fullName: function(d, b){
+                let f = this.fName+" "+this.lName+", "+d+", "+b; 
+                return f; 
+            }
+        }
+        let person1 = {
+            fName: "Golam", 
+            lName: "kibria"
+        }
+        let x = document.getElementById("gk"); 
+        x.innerHTML = person.fullName.call(person1, "Dhaka", "Bangladesh"); 
+        </script>
+</body>
+
+**********

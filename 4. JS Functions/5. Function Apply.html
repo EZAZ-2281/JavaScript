@@ -1,0 +1,74 @@
+JavaScript Function apply()
+The apply() method is similar to the call() method (previous chapter).
+In this example the fullName method of person is applied on person1:
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        let person = {
+            fullName: function(){
+                let f = this.fName+" "+this.lName; 
+                return f; 
+            }
+        }
+        let person1 = {
+            fName: "Golam", 
+            lName: "kibria"
+        }
+        let x = document.getElementById("gk"); 
+        x.innerHTML = person.fullName.apply(person1); 
+        </script>
+</body>
+***
+The Difference Between call() and apply()
+The difference is:
+The call() method takes arguments separately.
+The apply() method takes arguments as an array.
+The apply() method is very handy if you want to use an array instead of an argument list.
+***
+The apply() method accepts arguments in an array:
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        let person = {
+            fullName: function(d, b){
+                let f = this.fName+" "+this.lName+" "+d+" "+b; 
+                return f; 
+            }
+        }
+        let person1 = {
+            fName: "Golam", 
+            lName: "kibria"
+        }
+        let x = document.getElementById("gk"); 
+        x.innerHTML = person.fullName.apply(person1, ["Dhaka", "BD"]); 
+        </script>
+</body>
+***
+Simulate a Max Method on Arrays
+You can find the largest number (in a list of numbers) using the Math.max() method:
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        document.getElementById("gk").innerHTML = Math.max(3, 6, 4, 8);     
+    </script>
+</body>
+Or, 
+The first argument (null) does not matter. It is not used in this example.
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        let a = Math.max.apply(null, [1, 2, 3]); 
+        document.getElementById("gk").innerHTML = a;  
+    </script>
+</body>
+or, (Just put this three example in the above example)
+let a = Math.max.apply(Math, [1, 2, 3]); 
+or, 
+let a = Math.max.apply("", [1, 2, 3]); 
+or, 
+let a = Math.max.apply(0, [1, 2, 3]); 
+*****************************************************

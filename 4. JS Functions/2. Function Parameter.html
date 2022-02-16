@@ -1,0 +1,75 @@
+JavaScript Function Parameters
+Function parameters are the names listed in the function definition.
+Function arguments are the real values passed to (and received by) the function.
+***
+Default Parameters
+If a function is called with missing arguments (less than declared), the missing values are set to undefined.
+Sometimes this is acceptable, but sometimes it is better to assign a default value to the parameter:
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        function myFunc(a, b){
+            if(b == undefined){
+                b = 2; 
+            }
+            return a+b; 
+        }
+        let x = myFunc(4); 
+        document.getElementById("gk").innerHTML = x; 
+    </script>
+</body>
+Or, 
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        function myFunc(a, b=5){
+            return a+b; 
+        }
+        let x = myFunc(4); 
+        document.getElementById("gk").innerHTML = x; 
+    </script>
+</body>
+***
+The Arguments Object
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        function findMax(){
+            let max = -1, i; 
+            //let max = -Infinity; 
+            for(i = 0; i < arguments.length; i++){
+                if(arguments[i] > max){
+                    max = arguments[i]; 
+                }
+            }
+            return max; 
+        }
+        let m = findMax(4, 2, 7, 6, 9); 
+        document.getElementById("gk").innerHTML = m; 
+    </script>
+</body>
+Or create a function to sum all input values:
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        function findSum(){
+            let sum = 0, i; 
+            for(i = 0; i < arguments.length; i++){
+                sum = sum + arguments[i]; 
+            }
+            return sum; 
+        }
+        let s = findSum(4, 2, 7, 6, 9); 
+        document.getElementById("gk").innerHTML = s; 
+    </script>
+</body>
+***
+Arguments are Passed by Value
+Changes to arguments are not visible (reflected) outside the function.
+Objects are Passed by Reference
+Changes to object properties are visible (reflected) outside the function.
+***

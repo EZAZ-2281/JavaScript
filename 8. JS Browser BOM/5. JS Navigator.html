@@ -1,0 +1,34 @@
+Window Navigator
+The window.navigator object can be written without the window prefix.
+
+Some examples:
+navigator.appName
+navigator.appCodeName
+navigator.platform
+
+Strange enough, "Netscape" is the application name for both IE11, Chrome, Firefox, and Safari.
+"Mozilla" is the application code name for both Chrome, Firefox, IE, Safari, and Opera.
+Do not rely on this. Most browsers returns "Gecko" as product name !!
+The userAgent property returns the user-agent header sent by the browser to the server
+
+Browser Cookies, Browser Application Name, Browser Application Code Name, The Browser Engine, The Browser Version, The Browser Agent, The Browser Platform, The Browser Language, Is The Browser Online?, Is Java Enabled?
+The cookieEnabled property returns true if cookies are enabled, otherwise false
+
+<body>
+    <p id="gk"></p>
+    <script>
+        let a = document.getElementById("gk"); 
+        a.innerHTML = navigator.cookieEnabled; 
+        a.innerHTML = navigator.appName; 
+        a.innerHTML = navigator.appCodeName; 
+        a.innerHTML = navigator.product; 
+        a.innerHTML = navigator.appVersion; 
+        a.innerHTML = navigator.userAgent; 
+        a.innerHTML = navigator.platform; 
+        a.innerHTML = navigator.language; 
+        a.innerHTML = navigator.onLine; 
+        a.innerHTML = navigator.javaEnabled(); 
+    </script>
+</body>
+
+**************************

@@ -1,0 +1,19 @@
+Fetch API
+The Fetch API interface allows web browser to make HTTP requests to web servers.
+Fetch is based on async and await, the example above might be easier to understand
+.html file
+<body>
+    <p id="gk">Fecth API</p>
+    <script>
+        getText("demo.txt"); 
+        async function getText(file){
+            let a = await fetch(file); 
+            let b = await a.text(); 
+            document.getElementById("gk").innerHTML = b; 
+        }
+    </script>
+</body>
+.txt file
+Golam kibria Dhaka Bangladesh
+
+*************************************

@@ -1,0 +1,134 @@
+JavaScript Display Objects
+Displaying a JavaScript object will output [object Object].
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        const person = {
+            fName: "Golam", 
+            lName: "Kibria"
+        };
+        let x = document.getElementById("gk"); 
+        x.innerHTML = person; 
+    </script>
+</body>
+***
+Displaying Object Properties
+The properties of an object can be displayed as a string:
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        const person = {
+            fName: "Golam", 
+            lName: "Kibria"
+        };
+        let x = document.getElementById("gk"); 
+        x.innerHTML = person.fName+" "+person.lName; 
+    </script>
+</body>
+***
+Displaying the Object in a Loop
+The properties of an object can be collected in a loop:
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        const person = {
+            fName: "Golam", 
+            lName: "Kibria"
+        };
+        let text = " "; 
+        for(let i in person){
+            text += person[i]+" "; 
+        }
+        let x = document.getElementById("gk"); 
+        x.innerHTML = text; 
+    </script>
+</body>
+You must use person[x] in the loop.
+person.x will not work (Because x is a variable).
+***
+Display Using Object.values()
+Any JavaScript object can be converted to an array using Object.values():
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        const person = {
+            fName: "Golam", 
+            lName: "Kibria"
+        };
+        let myArray = Object.values(person); 
+        let x = document.getElementById("gk"); 
+        x.innerHTML = myArray; 
+    </script>
+</body>
+***
+Using JSON.stringify()
+Any JavaScript object can be stringified (converted to a string) with the JavaScript function JSON.stringify():
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        const person = {
+            fName: "Golam", 
+            lName: "Kibria"
+        };
+        let myString = JSON.stringify(person);  
+        let x = document.getElementById("gk"); 
+        x.innerHTML = myString; 
+    </script>
+</body>
+***
+Stringify Dates
+JSON.stringify converts dates into strings:
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        const person = {
+            fName: "Golam", 
+            lName: "Kibria",
+            today: new Date()
+        };
+        let myString = JSON.stringify(person);  
+        let x = document.getElementById("gk"); 
+        x.innerHTML = myString; 
+    </script>
+</body>
+***
+Stringify Functions
+JSON.stringify will not stringify functions:
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        const person = {
+            fName: "Golam", 
+            lName: "Kibria",
+            age: function(){
+                return 21; 
+            }
+        };
+		//make age string before printing
+        person.age = person.age.toString(); 
+        let myString = JSON.stringify(person);  
+        let x = document.getElementById("gk"); 
+        x.innerHTML = myString; 
+    </script>
+</body>
+***
+Stringify Arrays
+It is also possible to stringify JavaScript arrays:
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        let myArray = ["gk", "ar", "apple"]; 
+        let myString = JSON.stringify(myArray); 
+        let x = document.getElementById("gk"); 
+        x.innerHTML = myString; 
+    </script>
+</body>
+**************************************************************

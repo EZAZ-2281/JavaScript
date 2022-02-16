@@ -1,0 +1,34 @@
+The History back() Method
+<body>
+    <button onclick="myFunc()">Go Back</button>
+    <script>
+        function myFunc(){
+            window.history.back(); 
+        }
+    </script>
+</body>
+
+
+The History go() Method
+<body>
+    <button onclick="myFunc()">Go</button>
+    <script>
+        function myFunc(){
+            window.history.go(); 
+			window.history.go(-2);//go back 2 page
+        }
+    </script>
+</body>
+
+
+history.forward()
+<body>    
+    <button onclick="history.forward()">Go forward</button>
+</body>
+
+history.forward() is the same as history.go(1)
+Click on Go Forward to see how it works.
+(Will only work if a next page exists in your history list)
+
+
+******************************

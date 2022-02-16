@@ -1,0 +1,239 @@
+JavaScript Maps
+A Map holds key-value pairs where the keys can be any datatype.
+A Map remembers the original insertion order of the keys.
+A Map has a property that represents the size of the map.
+***
+How to Create a Map
+You can create a JavaScript Map by:
+Passing an Array to new Map()
+Create a Map and use Map.set()
+***
+new Map()
+You can create a Map by passing an Array to the new Map() constructor:
+<body>
+  <p id="gk"></p>
+  <script>
+    let m = new Map([
+      ["a", 20],
+      ["b", 21],
+      ["c", 22]
+    ]);
+    document.getElementById("gk").innerHTML = m.get("a"); 
+  </script>
+</body>
+***
+Map.set()
+You can add elements to a Map with the set() method:
+<body>
+  <p id="gk"></p>
+  <script>
+    let m = new Map(); 
+    m.set("a", 2); 
+    m.set("b", 3); 
+    m.set("c", 3); 
+    document.getElementById("gk").innerHTML = m.get("a"); 
+  </script>
+</body>
+***
+The set() method can also be used to change existing Map values:
+<body>
+  <p id="gk"></p>
+  <script>
+    let m = new Map([
+      ["a", 20],
+      ["b", 21],
+      ["c", 22]
+    ]);
+    m.set("a", 30); 
+    document.getElementById("gk").innerHTML = m.get("a"); //30
+  </script>
+</body>
+***
+Map.size
+The size property returns the number of elements in a Map:
+<body>
+  <p id="gk"></p>
+  <script>
+    let m = new Map([
+      ["a", 20],
+      ["b", 21],
+      ["c", 22]
+    ]);
+    document.getElementById("gk").innerHTML = m.size; 
+  </script>
+</body>
+***
+Map.delete()
+The delete() method removes a Map element:
+<body>
+  <p id="gk"></p>
+  <script>
+    let m = new Map([
+      ["a", 20],
+      ["b", 21],
+      ["c", 22]
+    ]);
+    m.delete("a");
+    //document.getElementById("gk").innerHTML = m.delete("a"); //true
+    document.getElementById("gk").innerHTML = m.size; //2
+  </script>
+</body>
+***
+Map.clear()
+The clear() method removes all the elements from a Map:
+<body>
+  <p id="gk"></p>
+  <script>
+    let m = new Map([
+      ["a", 20],
+      ["b", 21],
+      ["c", 22]
+    ]);
+    m.clear();
+    document.getElementById("gk").innerHTML = m.size; //0
+  </script>
+</body>
+***
+Map.has()
+The has() method returns true if a key exists in a Map:
+<body>
+  <p id="gk"></p>
+  <script>
+    let m = new Map([
+      ["a", 20],
+      ["b", 21],
+      ["c", 22]
+    ]);
+    document.getElementById("gk").innerHTML = m.has("a"); 
+  </script>
+</body>
+***
+Maps are Objects
+typeof returns object:
+<body>
+  <p id="gk"></p>
+  <script>
+    let m = new Map([
+      ["a", 20],
+      ["b", 21],
+      ["c", 22]
+    ]);
+    document.getElementById("gk").innerHTML = typeof(m);  
+  </script>
+</body>
+***
+instanceof Map returns true:
+<body>
+  <p id="gk"></p>
+  <script>
+    let m = new Map([
+      ["a", 20],
+      ["b", 21],
+      ["c", 22]
+    ]);
+    document.getElementById("gk").innerHTML = m instanceof Map; 
+  </script>
+</body>
+***
+Map.forEach()
+The forEach() method invokes a callback for each key/value pair in a Map:
+<body>
+  <p id="gk"></p>
+  <script>
+    let m = new Map([
+      ["a", 20],
+      ["b", 21],
+      ["c", 22]
+    ]);
+    let text = ""; 
+    m.forEach(function(value, key){
+      text += key+" = "+value+"<br>"; 
+    })
+    document.getElementById("gk").innerHTML = text; 
+  </script>
+</body>
+***
+Map.keys()
+The keys() method returns an iterator object with the keys in a Map:
+<body>
+  <p id="gk"></p>
+  <script>
+    let m = new Map([
+      ["a", 20],
+      ["b", 21],
+      ["c", 22]
+    ]);
+    let text = ""; 
+    for(let x of m.keys()){
+      text += x+"<br>"; 
+    }
+    document.getElementById("gk").innerHTML = text; 
+  </script>
+</body>
+***
+Map.values()
+The values method returns an iterator object with the values in a Map:
+<body>
+  <p id="gk"></p>
+  <script>
+    let m = new Map([
+      ["a", 20],
+      ["b", 21],
+      ["c", 22]
+    ]);
+    /* let text = ""; 
+    for(let x of m.values()){
+      text += x+"<br>"; 
+    }
+    document.getElementById("gk").innerHTML = text; */
+    let sum = 0; 
+    for(let x of m.values()){
+      sum += x; 
+    }
+    document.getElementById("gk").innerHTML = sum; //63
+  </script>
+</body>
+***
+Map.entries()
+The entries() method returns an iterator object with the [key,values] in a Map:
+<body>
+  <p id="gk"></p>
+  <script>
+    let m = new Map([
+      ["a", 20],
+      ["b", 21],
+      ["c", 22]
+    ]);
+    let text = ""; 
+    for(let x of m.entries()){
+      text += x+"<br>"; 
+    }
+    document.getElementById("gk").innerHTML = text;
+  </script>
+</body>
+***
+Objects as Keys
+Being able to use objects as keys is an important Map feature.
+<body>
+  <p id="gk"></p>
+  <script>
+    const a = {
+      name: "Apple"
+    };
+    const b = {
+      name: "Banana"
+    }; 
+    const c = {
+      name: "Coconut"
+    };
+
+    let m = new Map(); 
+    m.set(a, 20); 
+    m.set(b, 30); 
+    m.set(c, 40); 
+    document.getElementById("gk").innerHTML = m.get(a); 
+    //document.getElementById("gk").innerHTML = m.get("a");//error
+  </script>
+</body>
+Remember: The key is an object (a), not a string ("a"):
+************

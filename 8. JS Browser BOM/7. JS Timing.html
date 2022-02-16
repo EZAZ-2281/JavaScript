@@ -1,0 +1,38 @@
+Timing Events
+The window object allows execution of code at specified time intervals.
+These time intervals are called timing events.
+The two key methods to use with JavaScript are:
+
+setTimeout(function, milliseconds)
+Executes a function, after waiting a specified number of milliseconds.
+
+setInterval(function, milliseconds)
+Same as setTimeout(), but repeats the execution of the function continuously.
+
+**********************
+
+The setTimeout() Method
+<body>
+    <p>You must click the Stop it button before the 2 seconds are up</p>
+    <button onclick="a = setTimeout(myFunc, 2000)">Click Me</button>
+    <button onclick="clearTimeout(a)">Stop it</button>
+    <script>
+        function myFunc(){
+            alert("Golam kibria"); 
+        }
+    </script>
+</body>
+
+The setInterval() Method
+<body>
+    <p>Clock</p>
+    <p id="gk"></p>
+    <button onclick="clearInterval(a)">Stop time</button>
+    <script>
+        let a = setInterval(myFunc, 1000); 
+        function myFunc(){
+            let d = new Date(); 
+            document.getElementById("gk").innerHTML = d.toLocaleTimeString(); 
+        }
+    </script>
+</body>

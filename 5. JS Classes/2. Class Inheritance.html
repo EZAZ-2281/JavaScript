@@ -1,0 +1,92 @@
+JavaScript Class Inheritance
+<body>
+    <h2>JavaScript Class Inheritance</h2>   
+    <p id="demo"></p>  
+    <script>
+    class Car {
+      constructor(name) {
+        this.name = name;
+      }
+      carName() {
+        let a =  'I have a ' + this.name;
+        return a; 
+      }
+    }  
+    class Model extends Car {
+      constructor(name, mod) {
+        super(name);
+        this.model = mod;
+      }
+      display() {
+        let x =  this.carName() + ', it is a ' + this.model;
+        return x; 
+      }
+    }   
+    let ob = new Model("Ford", "Mustang");
+    let f = document.getElementById("demo"); 
+    f.innerHTML = ob.display(); 
+    </script>  
+</body>
+The super() method refers to the parent class.
+By calling the super() method in the constructor method, we call the parent's constructor method and gets access to the parent's properties and methods.
+***
+Getters and Setters
+<body>
+    <h2>JavaScript Class Gettter/Setter</h2>  
+    <p id="demo"></p>  
+    <script>
+    class Car {
+      constructor(name) {
+        this.name = name;
+      }
+      set carName(x) {
+        this.name = x;
+      }
+      get carName() {
+        return this.name;
+      }
+    }  
+    let ob = new Car("Ford");
+    let f = document.getElementById("demo"); 
+    f.innerHTML = ob.carName;
+    </script>  
+</body>
+even if the getter is a method, you do not use parentheses when you want to get the property value.
+Or, 
+You can use the underscore character to separate the getter/setter from the actual property:
+<body>
+    <h2>JavaScript Class Gettter/Setter</h2>  
+    <p id="demo"></p>  
+    <script>
+    class Car {
+      constructor(name) {
+        this._name = name;
+      }
+      set carName(x) {
+        this._name = x;
+      }
+      get carName() {
+        return this._name;
+      }
+    }  
+    let ob = new Car("Ford");
+    let f = document.getElementById("demo"); 
+    f.innerHTML = ob.carName;
+    </script>  
+</body>
+***
+Hoisting
+//You cannot use the class yet.
+//myCar = new Car("Ford")
+//This would raise an error.
+
+class Car {
+  constructor(brand) {
+    this.carname = brand;
+  }
+}
+
+//Now you can use the class:
+let myCar = new Car("Ford")
+
+***************************************************************************

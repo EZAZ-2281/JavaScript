@@ -1,0 +1,146 @@
+JavaScript Object Properties
+Properties are the most important part of any JavaScript object.
+Accessing JavaScript Properties
+The syntax for accessing the property of an object is:
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        const person = {
+            fName: "Abdur", 
+            lName: "Rahim"
+        }
+        let a = document.getElementById("gk"); 
+        a.innerHTML = person["fName"]+" "+person["lName"]; 
+    </script>
+</body>
+***
+JavaScript for...in Loop
+The JavaScript for...in statement loops through the properties of an object.
+The block of code inside of the for...in loop will be executed once for each property.
+Looping through the properties of an object:
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        const person = {
+            fName: "Abdur", 
+            lName: "Rahim",
+            age: 20
+        }
+        let text = " "; 
+        for(let x in person){
+            text += person[x] +" "; 
+        }
+        let a = document.getElementById("gk"); 
+        a.innerHTML = text; 
+    </script>
+</body>
+***
+Adding New Properties
+You can add new properties to an existing object by simply giving it a value.
+Assume that the person object already exists - you can then give it new properties:
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        const person = {
+            fName: "Abdur", 
+            lName: "Rahim",
+            age: 20
+        }
+        person.country = "Bangladesh"
+        let text = " "; 
+        for(let x in person){
+            text += person[x] +" "; 
+        }
+        let a = document.getElementById("gk"); 
+        a.innerHTML = text; 
+    </script>
+</body>
+***
+Deleting Properties
+The delete keyword deletes a property from an object:
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        const person = {
+            fName: "Abdur", 
+            lName: "Rahim",
+            age: 20
+        }
+        delete person.age; 
+        //delete person["age"]; 
+        let text = " "; 
+        for(let x in person){
+            text += person[x] +" "; 
+        }
+        let a = document.getElementById("gk"); 
+        a.innerHTML = text; 
+    </script>
+</body>
+***
+Nested Objects
+Values in an object can be another object:
+Example
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        const person = {
+            fName: "Abdur", 
+            lName: "Rahim",
+            age: 20,
+            car: {
+                one: "Ford", 
+                two: "Volvo", 
+                three: "Toyota"
+            }
+        }
+        let p = document.getElementById("gk"); 
+        p.innerHTML = person.car.one; 
+
+        /* Optional
+        p.innerHTML = person.car["one"]; 
+        p.innerHTML = person["car"]["one"]; 
+        let c = "car"; 
+        let c1 = "one"; 
+        p.innerHTML = person[c][c1]; */
+    </script>
+</body>
+***
+Nested Arrays and Objects
+Values in objects can be arrays, and values in arrays can be objects:
+Example
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        const person = {
+            fName: "Abdur", 
+            lName: "Rahim",
+            age: 20,
+            car: [
+                {
+                    name: "Ford",
+                    model: ["af", "bf", "cf"]
+                },
+                {
+                    name: "Toyota", 
+                    model: ["tone", "ttwo", "tthree"]
+                }
+            ]
+        }
+        let x = " "; 
+        for(let i in person.car){
+            x += "<h1>"+person.car[i].name+"</h1>"; 
+            for(let j in person.car[i].model){
+                x += person.car[i].model[j]+"<br>"; 
+            }
+        }
+        let f = document.getElementById("gk"); 
+        f.innerHTML = x; 
+    </script>
+</body>
+**********

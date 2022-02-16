@@ -1,0 +1,94 @@
+JavaScript Classes
+A JavaScript class is not an object.
+It is a template for JavaScript objects.
+The constructor method is called automatically when a new object is created.
+<body>
+    <h2>JS Class</h2>
+    <p id="gk"></p>
+    <script>
+        class Car{
+            constructor(name, year){
+                this.name = name; 
+                this.year = year; 
+            }
+        }
+        let ob = new Car("Ford", 2012); 
+        let a = document.getElementById("gk"); 
+        a.innerHTML = ob.name+" "+ob.year; 
+    </script>
+</body>
+***
+Create a Class method named "age", that returns the Car age:
+<body>
+    <h2>JS Class</h2>
+    <p id="gk"></p>
+    <script>
+        class Car{
+            constructor(name, year){
+                this.name = name; 
+                this.year = year; 
+            }
+            age(){
+                let d = new Date(); 
+                let y = d.getFullYear(); 
+                let dif = y - this.year; 
+                return dif; 
+            }
+        }
+        let ob = new Car("Ford", 2012);
+        let x = document.getElementById("gk"); 
+        x.innerHTML = "My car is "+ob.age()+" years old."; 
+    </script>
+</body>
+***
+You can send parameters to Class methods:
+<body>
+    <h2>JS Class</h2>
+    <p id="gk"></p>
+    <script>
+        class Car{
+            constructor(name, year){
+                this.name = name; 
+                this.year = year; 
+            }
+            age(y){
+                let dif = y - this.year; 
+                return dif; 
+            }
+        }
+        let d = new Date(); 
+        let y = d.getFullYear(); 
+        
+        let ob = new Car("Ford", 2012);
+        let x = document.getElementById("gk"); 
+        x.innerHTML = "My car is "+ob.age(y)+" years old."; 
+    </script>
+</body>
+***
+"use strict"
+<body>
+    <h2>JS Class</h2>
+    <p id="gk"></p>
+    <script>
+        class Car{
+            constructor(name, year){
+                this.name = name; 
+                this.year = year; 
+            }
+            age(){
+                "use strict"; 
+                //d = new Date(); //this is error
+                let d = new Date(); //this will word
+                let y = d.getFullYear(); 
+                let dif = y - this.year; 
+                return dif; 
+            }
+        }
+        let ob = new Car("Ford", 2012);
+        let x = document.getElementById("gk"); 
+        x.innerHTML = "My car is "+ob.age()+" years old."; 
+    </script>
+</body>
+
+
+*****************************************************************************

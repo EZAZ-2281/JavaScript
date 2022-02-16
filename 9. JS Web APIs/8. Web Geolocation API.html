@@ -1,0 +1,96 @@
+Using the Geolocation API
+The getCurrentPosition() method is used to return the user's position.
+The example below returns the latitude and longitude of the user's position:
+<body>
+    <p>Geolocation API</p>
+    <p>Click the button to get your coordinates.</p>
+    <button onclick="myFunc()">Click Me</button>
+    <p id="gk"></p>
+    <script>
+        let a = document.getElementById("gk"); 
+        function myFunc(){
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(showPosition); 
+            }
+            else{
+                a.innerHTML = "Not support by this browser"; 
+            }
+        }
+        function showPosition(p){
+            a.innerHTML = "Latitude: "+p.coords.latitude +"<br>Longitude: "+p.coords.longitude; 
+        }
+    </script>
+</body>
+
+**
+
+Handling Errors and Rejections
+The second parameter of the getCurrentPosition() method is used to handle errors. It specifies a function to run if it fails to get the user's location:
+<body>
+    <p>Geolocation API</p>
+    <p>Click the button to get your coordinates.</p>
+    <button onclick="myFunc()">Click Me</button>
+    <p id="gk"></p>
+    <script>
+        let a = document.getElementById("gk"); 
+        function myFunc(){
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(showPosition, showError); 
+            }
+            else{
+                a.innerHTML = "Not support by this browser"; 
+            }
+        }
+        function showPosition(p){
+            a.innerHTML = "Latitude: "+p.coords.latitude +"<br>Longitude: "+p.coords.longitude; 
+        }
+        function showError(e){
+            switch(e.code){
+                case e.PERMISSION_DENIED: 
+                a.innerHTML = "User denied the request"; 
+                break; 
+
+                case e.POSITION_UNABAILABLE:
+                a.innerHTML = "Location info is unabailable"; 
+                break; 
+
+                case e.TIMEOUT: 
+                a.innerHTML = "The request to get user location is timeout"; 
+                break; 
+
+                case e.UNKNOWN_ERROR: 
+                a.innerHTML = "An unknown error is occured"; 
+                break; 
+            }
+        }
+    </script>
+</body>
+
+**
+
+The Geolocation object also has other interesting methods:
+watchPosition() - Returns the current position of the user and continues to return updated position as the user moves (like the GPS in a car).
+clearWatch() - Stops the watchPosition() method.
+The example below shows the watchPosition() method. You need an accurate GPS device to test this (like smartphone):
+<body>
+    <p>Geolocation API</p>
+    <p>Click the button to get your coordinates.</p>
+    <button onclick="myFunc()">Click Me</button>
+    <p id="gk"></p>
+    <script>
+        let a = document.getElementById("gk"); 
+        function myFunc(){
+            if(navigator.geolocation){
+                navigator.geolocation.watchPosition(showPosition);
+            }
+            else{
+                a.innerHTML = "Not support by this browser"; 
+            }
+        }
+        function showPosition(p){
+            a.innerHTML = "Latitude: "+p.coords.latitude +"<br>Longitude: "+p.coords.longitude; 
+        }
+    </script>
+</body>
+
+**********************

@@ -1,0 +1,170 @@
+JavaScript Object Accessors
+JavaScript Accessors (Getters and Setters)
+JavaScript Getter (The get Keyword)
+This example uses a coun property to get the value of the country property.
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        const person = {
+            fName: "Golam",
+            lName: "Kibria", 
+            country: "Bandladesh", 
+            get coun(){
+                return this.country; 
+            }
+        }; 
+        let a = document.getElementById("gk"); 
+        a.innerHTML = person.coun; 
+    </script>
+</body>
+***
+JavaScript Setter (The set Keyword)
+This example uses a coun property to set the value of the country property.
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        const person = {
+            fName: "Golam",
+            lName: "Kibria", 
+            country: "", 
+            set coun(c){
+                this.country = c; 
+            }
+        }; 
+        person.country = "BD"; 
+        let a = document.getElementById("gk"); 
+        a.innerHTML = person.country; 
+    </script>
+</body>
+***
+JavaScript Function or Getter?
+What is the differences between these two examples?
+1. 
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        const person = {
+            fName: "Golam",
+            lName: "Kibria", 
+            fullName: function(){
+                let r = this.fName+" "+this.lName; 
+                return r; 
+            }
+        }; 
+        let a = document.getElementById("gk"); 
+        a.innerHTML = person.fullName(); 
+    </script>
+</body>
+2. 
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        const person = {
+            fName: "Golam",
+            lName: "Kibria", 
+            get fullName(){
+                let r = this.fName+" "+this.lName; 
+                return r; 
+            }
+        }; 
+        let a = document.getElementById("gk"); 
+        a.innerHTML = person.fullName; 
+    </script>
+</body>
+Example 1 access fullName as a function: person.fullName().
+Example 2 access fullName as a property: person.fullName.
+The second example provides a simpler syntax.
+***
+Data Quality
+JavaScript can secure better data quality when using getters and setters.
+Using the lan property, in this example, returns the value of the language property in upper case:
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        const person = {
+            fName: "Golam",
+            lName: "Kibria", 
+            language: "Bangla",
+            get lan(){
+                return this.language.toUpperCase(); 
+            }
+        }; 
+        let a = document.getElementById("gk"); 
+        a.innerHTML = person.lan; 
+    </script>
+</body>
+Using the lan property, in this example, stores an upper case value in the language property:
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        const person = {
+            fName: "Golam",
+            lName: "Kibria", 
+            language: "",
+            set lan(x){
+                this.language = x.toUpperCase(); 
+            }
+        }; 
+        person.lan = "Bangla";  
+        let a = document.getElementById("gk"); 
+        a.innerHTML = person.language; 
+    </script>
+</body>
+***
+Why Using Getters and Setters?
+It gives simpler syntax
+It allows equal syntax for properties and methods
+It can secure better data quality
+It is useful for doing things behind-the-scenes
+***
+Object.defineProperty()
+The Object.defineProperty() method can also be used to add Getters and Setters:
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        const value = {
+            count: 0
+        }; 
+        Object.defineProperty(value, "reset",{
+            get: function (){
+                this.count = 0; 
+            }
+        }); 
+        Object.defineProperty(value, "increment", {
+            get: function(){
+                this.count++; 
+            }
+        }); 
+        Object.defineProperty(value, "decrement", {
+            get: function(){
+                this.count--; 
+            }
+        }); 
+        Object.defineProperty(value, "add", {
+            set: function(a){
+                this.count += a; 
+            }
+        }); 
+        Object.defineProperty(value, "subtract", {
+            set: function(a){
+                this.count -= a; 
+            }
+        }); 
+
+        value.reset; 
+        value.add = 5; 
+        value.subtract = 1; 
+        //value.increment; 
+        //value.decrement; 
+
+        document.getElementById("gk").innerHTML = value.count; 
+    </script>
+</body>
+*********

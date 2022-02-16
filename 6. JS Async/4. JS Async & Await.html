@@ -1,0 +1,119 @@
+async makes a function return a Promise
+await makes a function wait for a Promise
+***
+The keyword async before a function makes the function return a promise:
+<body>
+    <p>Async and Await</p>
+    <p id="gk"></p>
+    <script>
+        function display(some){
+            document.getElementById("gk").innerHTML = some; 
+        }
+        async function myFunc(){
+            return "Kibria"; 
+        }
+        /*function myFunc(){
+            return Promise.resolve("Kibria"); 
+        }*/
+        myFunc().then(
+            function(value){
+                display(value); 
+            },
+            function(error){
+                display(error); 
+            }
+        ); 
+    </script>
+</body>
+Or simpler, since you expect a normal value (a normal response, not an error):
+<body>
+    <p>Async and Await</p>
+    <p id="gk"></p>
+    <script>
+        function display(some){
+            document.getElementById("gk").innerHTML = some; 
+        }
+        async function myFunc(){
+            return "Kibria"; 
+        }
+        myFunc().then(
+            function(value){
+                display(value); 
+            }
+        ); 
+    </script>
+</body>
+***
+Await Syntax
+The keyword await before a function makes the function wait for a promise
+The two arguments (resolve and reject) are pre-defined by JavaScript.
+We will not create them, but call one of them when the executor function is ready.
+<body>
+    <p>Async and Await</p>
+    <p id="gk"></p>
+    <script>
+        async function display(){
+            let p = new Promise(function(solve, reject){
+                solve("Golam kibria"); 
+            }); 
+            document.getElementById("gk").innerHTML = await p; 
+        }
+        display(); 
+    </script>
+</body>
+Example without reject
+<body>
+    <p>Async and Await</p>
+    <p id="gk"></p>
+    <script>
+        async function display(){
+            let p = new Promise(function(solve){
+                solve("Golam kibria"); 
+            }); 
+            document.getElementById("gk").innerHTML = await p; 
+        }
+        display(); 
+    </script>
+</body>
+***
+Waiting for a timeout
+<body>
+    <p>Async and Await</p>
+    <p id="gk"></p>
+    <script>
+        async function display(){
+            let p = new Promise(function(resolve){
+                setTimeout(myFunc, 3000); 
+                function myFunc(){
+                    resolve("Golam kibria"); 
+                }
+            }); 
+            document.getElementById("gk").innerHTML = await p; 
+        }
+        display(); 
+    </script>
+</body>
+
+Waiting for a File
+<body>
+    <p>Async and Await</p>
+    <p id="gk"></p>
+    <script>
+        async function getFile(){
+            let p = new Promise(function(resolve){
+                let req = new XMLHttpRequest(); 
+                req.open("Get", "car.html"); 
+                req.onload = function(){
+                    if(req.status == 200)
+                        resolve(req.response); 
+                    else
+                        resolve("File not found"); 
+                }
+                req.send(); 
+            }); 
+            document.getElementById("gk").innerHTML = await p; 
+        }
+        getFile(); 
+    </script>
+</body>
+***

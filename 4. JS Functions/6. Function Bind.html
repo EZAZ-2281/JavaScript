@@ -1,0 +1,60 @@
+Function Borrowing
+With the bind() method, an object can borrow a method from another object.
+The example below creates 2 objects (person and member).
+The member object borrows the fullname method from the person object:
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        let person = {
+            fName: "Golam", 
+            lName: "Kibria",
+            fullName: function(){
+                let a = this.fName+" "+this.lName; 
+                return a; 
+            }
+        }
+        let member = {
+            fName: "Al",
+            lName: "Amin"
+        }
+        let fN = person.fullName.bind(member); 
+        document.getElementById("gk").innerHTML = fN(); //Al Amin
+    </script>
+</body>
+***
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        let person = {
+            fName: "Golam", 
+            lName: "Kibria",
+            display: function(){
+                let x = document.getElementById("gk"); 
+                x.innerHTML = this.fName+" "+this.lName; 
+            }
+        }
+        person.display(); 
+    </script>
+</body>
+***
+In the following example, the bind() method is used to bind person.display to person.
+This example will display the person name after 3 seconds:
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        let person = {
+            fName: "Golam", 
+            lName: "Kibria",
+            display: function(){
+                let x = document.getElementById("gk"); 
+                x.innerHTML = this.fName+" "+this.lName; 
+            }
+        }
+        let p = person.display.bind(person); 
+        setTimeout(p, 3000); 
+    </script>
+</body>
+*************

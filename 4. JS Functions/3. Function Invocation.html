@@ -1,0 +1,80 @@
+JavaScript Function Invocation
+myFunction() and window.myFunction() is the same function:
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        function myFunc(a, b){
+            return a+b; 
+        }
+        let x = window.myFunc(2, 3); 
+        document.getElementById("gk").innerHTML = x; 
+    </script>
+</body>
+***
+The Global Object
+This example returns the window object as the value of this:
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        function myFunc(){
+            return this; 
+        }
+        let x = myFunc(); 
+        document.getElementById("gk").innerHTML = x; 
+    </script>
+</body>
+***
+Invoking a Function as a Method
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        let nam = {
+            fName: "Golam", 
+            lName: "kibria", 
+            fullName: function(){
+                let n = this.fName+" "+this.lName; 
+				//let n = nam.fName+" "+nam.lName; 
+                return n; 
+            }
+        }
+        document.getElementById("gk").innerHTML = nam.fullName(); 
+    </script>
+</body>
+Or, 
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        let nam = {
+            fName: "Golam", 
+            lName: "kibria", 
+            fullName: function(){
+                return this; 
+            }
+        }
+        document.getElementById("gk").innerHTML = nam.fullName(); 
+        //[object][object]
+    </script>
+</body>
+***
+Invoking a Function with a Function Constructor
+If a function invocation is preceded with the new keyword, it is a constructor invocation.
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        function myFunc(name1, name2){
+            this.name1 = name1; 
+            this.name2 = name2; 
+        }
+        let ob = new myFunc("Golam", "kibria"); 
+        let a = ob.name1; 
+        let b = ob.name2; 
+        document.getElementById("gk").innerHTML = a+" "+b; 
+    </script>
+</body>
+The this keyword in the constructor does not have a value.
+***

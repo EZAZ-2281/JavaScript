@@ -1,0 +1,31 @@
+Window Location
+The window.location object can be written without the window prefix.
+
+Some examples:
+
+window.location.href returns the href (URL) of the current page
+window.location.hostname returns the domain name of the web host
+window.location.pathname returns the path and filename of the current page
+window.location.protocol returns the web protocol used (http: or https:)
+window.location.assign() loads a new document
+Most browsers will not display default port numbers (80 for http and 443 for https)
+
+<body>
+    <h2>JavaScript Window</h2>
+    <p id="gk"></p>
+    <input type="button" value="Load new document" onclick="myFunc()">
+    <script>
+        let a = document.getElementById("gk"); 
+        a.innerHTML = location.href; 
+        a.innerHTML = location.hostname; 
+        a.innerHTML = location.pathname; 
+        a.innerHTML = location.protocol; 
+        a.innerHTML = location.port; 
+
+        function myFunc(){
+            location.assign("https://www.w3schools.com"); 
+        }
+    </script>
+</body>
+
+*********************************

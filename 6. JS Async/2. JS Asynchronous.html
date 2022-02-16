@@ -1,0 +1,69 @@
+Asynchronous JavaScript
+Waiting for a Timeout
+In the example below, myFunction is used as a callback.
+myFunction is passed to setTimeout() as an argument.
+3000 is the number of milliseconds before time-out, so myFunction() will be called after 3 seconds.
+
+<body>
+    <p>Wait 3 second for change</p>
+    <p id="gk"></p>
+    <script>
+        /*setTimeout(() => {
+            myFunc(); 
+        }, 3000);*/
+        setTimeout(myFunc, 3000); 
+        function myFunc(){
+            document.getElementById("gk").innerHTML = "Kibria"; 
+        }
+    </script>
+</body>
+Instead of passing the name of a function as an argument to another function, you can always pass a whole function instead:
+<body>
+    <p>Wait 3 second for change</p>
+    <p id="gk"></p>
+    <script>
+        setTimeout(function (){
+            document.getElementById("gk").innerHTML = "Kibria"; 
+        }, 3000);        
+    </script>
+</body>
+**
+Waiting for Intervals:
+<body>
+    <p>javaScript</p>
+    <p id="gk"></p>
+    <script>
+        setInterval(myFunc, 1000); 
+        function myFunc(){
+            let d = new Date(); 
+            document.getElementById("gk").innerHTML = 
+            d.getHours()+":"+
+            d.getMinutes()+":"+
+            d.getSeconds(); 
+        }
+    </script>
+</body>
+***
+Waiting for a File:
+<body>
+    <p id="gk"></p>
+    <script>
+        function display(a){
+            document.getElementById("gk").innerHTML = a; 
+        }
+        function getFile(callB){
+            let req = new XMLHttpRequest(); 
+            req.open("get", "car.html"); 
+            req.onload = function(){
+                if(req.status == 200)
+                    callB(this.responseText); 
+                else 
+                    callB("Error: "+req.status); 
+            }
+            req.send(); 
+        }
+        getFile(display); 
+    </script>
+</body>
+car.html
+<img src="./vs3.jpg">

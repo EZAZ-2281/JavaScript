@@ -1,0 +1,68 @@
+JavaScript Object Methods
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        const person = {
+            fName: "Abdur", 
+            lName: "Rahim",
+            fullName: function(){
+                //let a = this.fName+" "+this.lName; 
+                let a = person.fName+" "+person.lName; 
+                return a; 
+            }
+        }
+        let x = document.getElementById("gk"); 
+        x.innerHTML = person.fullName();
+    </script>
+</body>
+If you access the fullName property, without (), it will return the function definition:
+***
+Adding a Method to an Object
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        const person = {
+            fName: "Abdur", 
+            lName: "Rahim",
+        }
+        person.fullName = function(){
+            let a = this.fName+" "+this.lName; 
+            return a; 
+        }
+        let x = document.getElementById("gk"); 
+        x.innerHTML = person.fullName(); 
+    </script>
+</body>
+***
+Using Built-In Methods
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        let message = "Golam kibria"; 
+        let a = message.toUpperCase(); 
+        document.getElementById("gk").innerHTML = a; 
+    </script>
+</body>
+
+Or, 
+
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        const person = {
+            fName: "Abdur", 
+            lName: "Rahim",
+        }
+        person.fullName = function(){
+            let a = (this.fName+" "+this.lName).toUpperCase(); 
+            return a; 
+        }
+        let x = document.getElementById("gk"); 
+        x.innerHTML = person.fullName(); 
+    </script>
+</body>
+******

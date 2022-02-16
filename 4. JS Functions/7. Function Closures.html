@@ -1,0 +1,69 @@
+Global Variables
+A function can access all variables defined inside the function, like this:
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        function myFunc(){
+            let a = 4; 
+            return a * a; 
+        }
+        let x = myFunc(); 
+        document.getElementById("gk").innerHTML = x; 
+    </script>
+</body>
+But a function can also access variables defined outside the function, like this:
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        let a = 4; //a is a global variable.
+        function myFunc(){
+            return a * a; 
+        }
+        let x = myFunc(); 
+        document.getElementById("gk").innerHTML = x; 
+    </script>
+</body>
+Global variables can be used (and changed) by all scripts in the page (and in the window).
+A local variable can only be used inside the function where it is defined. It is hidden from other functions and other scripting code.
+***
+Variables created without a declaration keyword (var, let, or const) are always global, even if they are created inside a function.
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        a = 4; 
+        function myFunc(){
+            a = 4; 
+            return a * a; 
+        }
+        let x = myFunc(); 
+        document.getElementById("gk").innerHTML = x; 
+    </script>
+</body>
+***
+Variable Lifetime
+Global variables live until the page is discarded, like when you navigate to another page or close the window.
+Local variables have short lives. They are created when the function is invoked, and deleted when the function is finished.
+***
+JavaScript Closures
+A closure is a function having access to the parent scope, even after the parent function has closed.
+<body>
+    <h2>Function</h2>
+    <button onclick="myFunc()">Click Me</button>
+    <p id="gk"></p>
+    <script>
+        let add = (function (){
+            let count = 0; 
+            return function(){
+                count = count + 1; 
+                return count; 
+            }
+        })();
+        function myFunc(){
+            document.getElementById("gk").innerHTML = add(); 
+        }
+    </script>
+</body>
+***

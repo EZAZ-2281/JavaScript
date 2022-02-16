@@ -1,0 +1,55 @@
+Changing a Property Value
+<body>
+  <p id="gk"></p>
+  <script>
+    const person = {
+      fName: "Golam",
+      lName: "Kibria", 
+      country: "BD"
+    }; 
+    //change a property
+    Object.defineProperty(person, "country", {
+      value: "Pakistan"
+    })
+    document.getElementById("gk").innerHTML = person.country; 
+  </script>
+</body>
+***
+Adding a Property
+This example adds a new property to an object:
+<body>
+  <p id="gk"></p>
+  <script>
+    const person = {
+      fName: "Golam",
+      lName: "Kibria", 
+      country: "BD"
+    }; 
+    //add aproperty
+    Object.defineProperty(person, "Age", {
+      value: 21
+    })
+    document.getElementById("gk").innerHTML = person.Age; 
+  </script>
+</body>
+***
+Adding Getters and Setters
+The Object.defineProperty() method can also be used to add Getters and Setters:
+<body>
+  <p id="gk"></p>
+  <script>
+    const person = {
+      fName: "Golam",
+      lName: "Kibria", 
+      country: "BD"
+    }; 
+    Object.defineProperty(person, "fullName", {
+      get: function(){
+        let r = this.fName+" "+this.lName; 
+        return r; 
+      }
+    })
+    document.getElementById("gk").innerHTML = person.fullName; 
+  </script>
+</body>
+***

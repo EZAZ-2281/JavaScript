@@ -1,0 +1,147 @@
+JavaScript Function Definitions
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        function myFunc(a, b){
+            return a + b; 
+        }
+        let x = myFunc(2, 3); 
+        document.getElementById("gk").innerHTML = x; 
+    </script>
+</body>
+Semicolons are used to separate executable JavaScript statements.
+Since a function declaration is not an executable statement, it is not common to end it with a semicolon.
+***
+A function expression can be stored in a variable:
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        let x = function myFunc(a, b){
+            return a + b; 
+        }
+        document.getElementById("gk").innerHTML = x; 
+    </script>
+</body>
+***
+After a function expression has been stored in a variable, the variable can be used as a function:
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        let x = function myFunc(a, b){
+            return a + b; 
+        }
+        document.getElementById("gk").innerHTML = x(4, 5); 
+    </script>
+</body>
+***
+Functions can also be defined with a built-in JavaScript function constructor called Function().
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        let x = new Function("a", "b", "return a+b")
+        document.getElementById("gk").innerHTML = x(4, 5); 
+    </script>
+</body>
+You actually don't have to use the function constructor. The example above is the same as writing:
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        let x = function (a,b){
+            return a + b; 
+        }
+        document.getElementById("gk").innerHTML = x(4, 5); 
+    </script>
+</body>
+***
+Self-Invoking Functions
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        (function (){
+            let a = "Golam kibria"; 
+            document.getElementById("gk").innerHTML = a; 
+        })();
+    </script>
+</body>
+***
+Functions Can Be Used as Values
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        function myFunc(a, b){
+            return a+b; 
+        }
+        let x = myFunc(2, 3); 
+        document.getElementById("gk").innerHTML = x; 
+    </script>
+</body>
+Or, 
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        function myFunc(a, b){
+            return a+b; 
+        }
+        let x = myFunc(2, 3) * 2; 
+        document.getElementById("gk").innerHTML = x; 
+    </script>
+</body>
+***
+The arguments.length property returns the number of arguments received when the function was invoked:
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        function myFunc(a, b){
+            return arguments.length; 
+        }
+        let x = myFunc(2, 3); 
+        document.getElementById("gk").innerHTML = x; 
+    </script>
+</body>
+***
+The toString() method returns the function as a string:
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        function myFunc(a, b){
+            return a * b;  
+        }
+        document.getElementById("gk").innerHTML = myFunc.toString(); 
+    </script>
+</body>
+***
+Arrow Functions
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        let x = function (a, b){
+            return a+b; 
+        }
+        document.getElementById("gk").innerHTML = x(3, 5); 
+        let y = (m, n) => {
+            return m+n; 
+        }
+        document.getElementById("gk").innerHTML = y(4, 5); 
+    </script>
+</body>
+Or, 
+<body>
+    <h2>Function</h2>
+    <p id="gk"></p>
+    <script>
+        let y = (m, n) => m+n; 
+        document.getElementById("gk").innerHTML = y(4, 5); 
+    </script>
+</body>
+**********

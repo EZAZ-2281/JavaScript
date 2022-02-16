@@ -1,0 +1,23 @@
+<body onload="myFunc()">
+    <p>Making a Clock</p>
+    <p id="gk"></p>
+    <script>
+        function myFunc(){
+            let d = new Date(); 
+            let h = d.getHours(); 
+            let m = d.getMinutes(); 
+            let s = d.getSeconds(); 
+            m = addZero(m); 
+            s = addZero(s); 
+            let g = document.getElementById("gk"); 
+            g.innerHTML = h +":" +m +":" +s; 
+            setTimeout(myFunc, 1000); 
+        }
+        function addZero(minSec){
+            if(minSec < 10){
+                minSec = "0" + minSec; 
+            };
+            return minSec; 
+        }
+    </script>
+</body>

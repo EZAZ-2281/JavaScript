@@ -1,0 +1,137 @@
+"Producing code" is code that can take some time
+"Consuming code" is code that must wait for the result
+A Promise is a JavaScript object that links producing code and consuming code
+
+
+Promise.then() takes two arguments, a callback for success and another for failure.
+Both are optional, so you can add a callback for success or failure only.
+<body>
+    <p>JS Promise</p>
+    <p id="gk"></p>
+    <script>
+        function display(some){
+            document.getElementById("gk").innerHTML = some; 
+        }
+        let p = new Promise(function(myResolve, myReject){
+            let a = 0; 
+            if(a == 0)
+                myResolve("OK"); 
+            else
+                myReject("Error"); 
+        }); 
+        p.then(
+            function(value){
+                display(value); 
+            }, 
+            function(error){
+                display(error); 
+            }
+        ); 
+    </script>
+</body>
+***
+Waiting for a Timeout(Using Callback)
+<body>
+    <p>SetTimeout</p>
+    <p id="gk"></p>
+    <script>
+        setTimeout(myFunc, 3000); 
+        function myFunc(){
+            let a = document.getElementById("gk"); 
+            a.innerHTML = "Kibria"; 
+        }
+        /*setTimeout(function (){
+            let a = document.getElementById("gk"); 
+            a.innerHTML = "Kibria"; 
+        }, 3000); */
+        
+    </script>
+</body>
+Waiting for a Timeout(Using Promise)
+<body>
+    <p>SetTimeout</p>
+    <p id="gk"></p>
+    <script>
+        let p = new Promise(function(solve, reject){
+            setTimeout(function(){
+                solve("Golam kibria"); 
+            }, 3000)
+        }); 
+        p.then(
+            function(value){
+                document.getElementById("gk").innerHTML = value; 
+            }
+        )
+    </script>
+</body>
+Or, 
+<body>
+    <p>SetTimeout</p>
+    <p id="gk"></p>
+    <script>
+        let p = new Promise(function(solve, reject){
+            setTimeout(myFunc, 3000);
+            function myFunc(){
+                solve("Golam kibria"); 
+            }
+        }); 
+        p.then(
+            function(value){
+                document.getElementById("gk").innerHTML = value; 
+            }
+        )
+    </script>
+</body>
+***
+Waiting for a file(Using callback)
+<body>
+    <p>Waiting for file</p>
+    <p id="gk"></p>
+    <script>
+        function display(some){
+            document.getElementById("gk").innerHTML = some; 
+        }
+        function getFile(callB){
+            let req = new XMLHttpRequest(); 
+            req.open("Get", "car.html"); 
+            req.onload = function(){
+                if(req.status == 200)
+                    callB(this.responseText); 
+                else    
+                    callB("Error: "+req.status); 
+            }
+            req.send(); 
+        }
+        getFile(display); 
+    </script>
+</body>
+Waiting for a file(Using promise)
+<body>
+    <p>Waiting for file</p>
+    <p id="gk"></p>
+    <script>
+        function display(some){
+            document.getElementById("gk").innerHTML = some; 
+        }
+        let p = new Promise(function(solve, reject){
+            let req = new XMLHttpRequest(); 
+            req.open("Get", "car.html"); 
+            req.onload = function(){
+                if(req.status == 200)
+                    solve(req.response); 
+                else 
+                    reject("File not found"); 
+            }
+            req.send(); 
+        }); 
+        p.then(
+            function(value){
+                display(value); 
+            },
+            function(error){
+                display(error); 
+            }
+        ); 
+    </script>
+</body>
+***

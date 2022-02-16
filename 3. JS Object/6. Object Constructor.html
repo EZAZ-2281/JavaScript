@@ -1,0 +1,237 @@
+JavaScript Object Constructors
+Notes
+It is considered good practice to name constructor functions with an upper-case first letter.
+About this
+In a constructor function this does not have a value. It is a substitute for the new object. The value of this will become the new object when a new object is created.
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        function Person(first, last, age){
+            this.first = first; 
+            this.last = last; 
+            this.age = age; 
+        }
+        let ob = new Person("Golam", "kibria", 21); 
+        let x = document.getElementById("gk"); 
+        x.innerHTML = ob.age; 
+    </script>
+</body>
+***
+Sometimes we need a "blueprint" for creating many objects of the same "type".
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        function Person(first, last, age){
+            this.first = first; 
+            this.last = last; 
+            this.age = age; 
+        }
+        let ob = new Person("Golam", "kibria", 21); 
+        let ob2 = new Person("Nisa", "Nusrat", 15); 
+        let x = document.getElementById("gk"); 
+        x.innerHTML = ob.age+" "+ob2.age; 
+    </script>
+</body>
+***
+Adding a Property to an Object
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        function Person(first, last, age){
+            this.first = first; 
+            this.last = last; 
+            this.age = age; 
+        }
+        let ob = new Person("Golam", "kibria", 21); 
+        let ob2 = new Person("Nisa", "Nusrat", 15); 
+        ob.language = "Bangla"; 
+        let x = document.getElementById("gk"); 
+        x.innerHTML = ob.language; 
+    </script>
+</body>
+***
+Adding a Method to an Object
+Adding a new method to an existing object is easy:
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        function Person(first, last, age){
+            this.first = first; 
+            this.last = last; 
+            this.age = age; 
+        }
+        let ob = new Person("Golam", "kibria", 21); 
+        let ob2 = new Person("Nisa", "Nusrat", 15); 
+        ob.fullName = function(){
+            let r = this.first+" "+this.last; 
+            return r; 
+        }
+        let x = document.getElementById("gk"); 
+        x.innerHTML = ob.fullName();  
+    </script>
+</body>
+***
+Adding a Property to a Constructor
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        function Person(first, last, age){
+            this.first = first; 
+            this.last = last; 
+            this.age = age; 
+            this.language = "Bangla"; 
+        }
+        Person.language = "Bangla"; 
+
+        let ob = new Person("Golam", "kibria", 21); 
+        let ob2 = new Person("Nisa", "Nusrat", 15);
+         
+        let x = document.getElementById("gk"); 
+        x.innerHTML = ob.language; 
+    </script>
+</body>
+***
+Adding a Method to a Constructor
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        function Person(first, last, age){
+            this.first = first; 
+            this.last = last; 
+            this.age = age; 
+            this.language = "Bangla"; 
+            this.fullName = function(){
+                let r = this.first+" "+this.last; 
+                return r; 
+            }
+        }
+
+        let ob = new Person("Golam", "kibria", 21); 
+        let ob2 = new Person("Nisa", "Nusrat", 15);
+         
+        let x = document.getElementById("gk"); 
+        x.innerHTML = ob.fullName(); 
+    </script>
+</body>
+Or, 
+<body>
+    <h2>Objects</h2>
+    <p id="gk"></p>
+    <script>
+        function Person(first, last, age){
+            this.first = first; 
+            this.last = last; 
+            this.age = age; 
+            this.language = "Bangla"; 
+            this.chgName = function(cN){
+                this.last = cN; 
+            }
+        }
+
+        let ob = new Person("Golam", "kibria", 21); 
+        let ob2 = new Person("Nisa", "Nusrat", 15);
+        ob.chgName("Ezaz"); 
+        let x = document.getElementById("gk"); 
+        x.innerHTML = ob.last; 
+    </script>
+</body>
+***
+Built-in JavaScript Constructors
+JavaScript has built-in constructors for native objects:
+<body>
+
+<h2>JavaScript Object Constructors</h2>
+
+<p id="demo"></p>
+
+<script>
+const x1 = new String();   // A new String object
+const x2 = new Number();   // A new Number object
+const x3 = new Boolean();  // A new Boolean object
+const x4 = new Object();   // A new Object object
+const x5 = new Array();    // A new Array object
+const x6 = new RegExp();   // A new RegExp object
+const x7 = new Function(); // A new Function object
+const x8 = new Date();     // A new Date object
+
+// Display the type of all objects
+document.getElementById("demo").innerHTML =
+"x1: " + typeof x1 + "<br>" +
+"x2: " + typeof x2 + "<br>" +
+"x3: " + typeof x3 + "<br>" +
+"x4: " + typeof x4 + "<br>" +
+"x5: " + typeof x5 + "<br>" +
+"x6: " + typeof x6 + "<br>" +
+"x7: " + typeof x7 + "<br>" +
+"x8: " + typeof x8 + "<br>";
+</script>
+
+<p>There is no need to use new String(), new Number(), new Boolean(), new Array(), and new RegExp()</p>
+
+<p>Use literals instead like: myArray = []</p>
+
+</body>
+***
+As you can see above, JavaScript has object versions of the primitive data types String, Number, and Boolean. But there is no reason to create complex objects. Primitive values are much faster:
+Use string literals "" instead of new String().
+Use number literals 50 instead of new Number().
+Use boolean literals true / false instead of new Boolean().
+Use object literals {} instead of new Object().
+Use array literals [] instead of new Array().
+Use pattern literals /()/ instead of new RegExp().
+Use function expressions () {} instead of new Function().
+<body>
+
+<p id="demo"></p>
+
+<script>
+let x1 = "";      // string 
+let x2 = 0;       // number
+let x3 = false;   // boolean
+const x4 = {};    // Object object
+const x5 = [];    // Array object
+const x6 = /()/;  // RegExp object
+const x7 = function(){};  // function
+
+// Display the type of all
+document.getElementById("demo").innerHTML =
+"x1: " + typeof x1 + "<br>" +
+"x2: " + typeof x2 + "<br>" +
+"x3: " + typeof x3 + "<br>" +
+"x4: " + typeof x4 + "<br>" +
+"x5: " + typeof x5 + "<br>" +
+"x6: " + typeof x6 + "<br>" +
+"x7: " + typeof x7 + "<br>";
+</script>
+
+</body>
+output: 
+x1: string
+x2: number
+x3: boolean
+x4: object
+x5: object
+x6: object
+x7: function
+***
+String Objects
+Normally, strings are created as primitives: firstName = "John"
+But strings can also be created as objects using the new keyword:
+firstName = new String("John")
+***
+Number Objects
+Normally, numbers are created as primitives: x = 30
+But numbers can also be created as objects using the new keyword:
+x = new Number(30)
+***
+Boolean Objects
+Normally, booleans are created as primitives: x = false
+But booleans can also be created as objects using the new keyword:
+x = new Boolean(false)
+***

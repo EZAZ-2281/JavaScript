@@ -1,0 +1,58 @@
+Popup Boxes
+JavaScript has three kind of popup boxes: Alert box, Confirm box, and Prompt box.
+
+Alert Box
+An alert box is often used if you want to make sure information comes through to the user.
+When an alert box pops up, the user will have to click "OK" to proceed.
+<body>
+    <button onclick="myFunc()">Click Me</button>
+    <script>
+        function myFunc(){
+            alert("I am alert box"); 
+            //alert("Golam\nkibria"); for new line
+        }
+    </script>
+</body>
+
+Confirm Box
+A confirm box is often used if you want the user to verify or accept something.
+When a confirm box pops up, the user will have to click either "OK" or "Cancel" to proceed.
+If the user clicks "OK", the box returns true. If the user clicks "Cancel", the box returns false.
+<body>
+    <button onclick="myFunc()">Click Me</button>
+    <p id="gk"></p>
+    <script>
+        function myFunc(){
+            let text; 
+            if(confirm("Press a button!")){
+                text = "You press ok"; 
+            }
+            else{
+                text = "You press Cancel";
+            }
+            document.getElementById("gk").innerHTML = text; 
+        }
+    </script>
+</body>
+
+Prompt Box
+A prompt box is often used if you want the user to input a value before entering a page.
+When a prompt box pops up, the user will have to click either "OK" or "Cancel" to proceed after entering an input value.
+If the user clicks "OK" the box returns the input value. If the user clicks "Cancel" the box returns null.
+<body>
+    <button onclick="myFunc()">Click Me</button>
+    <p id="gk"></p>
+    <script>
+        function myFunc(){
+            let text; 
+            let nam = prompt("Enter your name?", "Golam kibria"); 
+            if(nam == null || nam == ""){
+                text = "You cancel the prompt"; 
+            }
+            else{
+                text = "Hello "+nam +". How are you today?"; 
+            }
+            document.getElementById("gk").innerHTML = text; 
+        }
+    </script>
+</body>

@@ -1,0 +1,208 @@
+1. JavaScript Arrays
+An array is a special variable, which can hold more than one value:
+<body>
+  <p id="gk"></p>
+  <script>
+    //It is a common practice to declare arrays with the const keyword.
+    const car = ["Volvo", "Totota", "BMW"]; 
+    document.getElementById("gk").innerHTML = car;  
+  </script>
+</body>
+***
+Spaces and line breaks are not important. A declaration can span multiple lines:
+<body>
+  <p id="gk"></p>
+  <script>
+    const car = [
+      "Volvo", 
+      "Totota", 
+      "BMW"
+    ]; 
+    document.getElementById("gk").innerHTML = car;  
+  </script>
+</body>
+***
+We can also create an array, and then provide the elements:
+<body>
+  <p id="gk"></p>
+  <script>
+    const car = []; 
+    car[0] =  "Volvo";
+    car[1] =  "Totota"; 
+    car[2] =  "BMW";
+    document.getElementById("gk").innerHTML = car;  
+  </script>
+</body>
+***
+Using the JavaScript Keyword new
+The following example also creates an Array, and assigns values to it:
+<body>
+  <p id="gk"></p>
+  <script>
+    const car = new Array("BMW", "Toyota", "Audi"); 
+    document.getElementById("gk").innerHTML = car;  
+  </script>
+</body>
+There is no need to use new Array().
+For simplicity, readability and execution speed, use the array literal method.(মানে আগের পদ্বতি গুলো)
+***
+Accessing Array Elements
+You access an array element by referring to the index number:
+<body>
+  <p id="gk"></p>
+  <script>
+    const car = ["BMW", "Audi", "Saab"]; 
+    document.getElementById("gk").innerHTML = car[0];  
+  </script>
+</body>
+***
+Changing an Array Element
+This statement changes the value of the first element in cars:
+<body>
+  <p id="gk"></p>
+  <script>
+    const car = ["BMW", "Audi", "Saab"]; 
+    car[0] = "Toyota"; 
+    document.getElementById("gk").innerHTML = car[0];  
+  </script>
+</body>
+***
+Arrays are Objects
+Arrays are a special type of objects. The typeof operator in JavaScript returns "object" for arrays.
+But, JavaScript arrays are best described as arrays.
+Arrays use numbers to access its "elements". In this example, person[0] returns John:
+Array:
+const person = ["John", "Doe", 46];
+Another example
+<body>
+  <p id="gk"></p>
+  <script>
+    const car = ["BMW", "Audi", "Saab"]; 
+    car[0] = "Toyota"; 
+    document.getElementById("gk").innerHTML = typeof(car); //object 
+  </script>
+</body>
+***
+The length Property
+The length property of an array returns the length of an array (the number of array elements).
+The length property is always one more than the highest array index.
+<body>
+  <p id="gk"></p>
+  <script>
+    const car = ["BMW", "Audi", "Saab"]; 
+    document.getElementById("gk").innerHTML = car.length; //3 
+  </script>
+</body>
+***
+Accessing the Last Array Element
+<body>
+  <p id="gk"></p>
+  <script>
+    const car = ["BMW", "Audi", "Saab"]; 
+    document.getElementById("gk").innerHTML = car[car.length-1]; 
+  </script>
+</body>
+***
+Looping Array Elements
+One way to loop through an array, is using a for loop:
+<body>
+  <p id="gk"></p>
+  <script>
+    const car = ["BMW", "Audi", "Saab"]; 
+    let text = ""; 
+    for(let i = 0; i < car.length; i++){
+      text += car[i]+" "; 
+    }
+    document.getElementById("gk").innerHTML = text; 
+  </script>
+</body>
+***
+You can also use the Array.forEach() function:
+<body>
+  <p id="gk"></p>
+  <script>
+    const car = ["BMW", "Audi", "Saab"]; 
+    let text = ""; 
+    car.forEach(myFunc); 
+    function myFunc(value){
+      text += value+" "; 
+    }
+    document.getElementById("gk").innerHTML = text; 
+  </script>
+</body>
+***
+Adding Array Elements
+The easiest way to add a new element to an array is using the push() method:
+<body>
+  <p id="gk"></p>
+  <script>
+    const car = ["BMW", "Audi", "Saab"]; 
+    car.push("Toyota"); 
+    document.getElementById("gk").innerHTML = car; 
+  </script>
+</body>
+New element can also be added to an array using the length property:
+<body>
+  <p id="gk"></p>
+  <script>
+    const car = ["BMW", "Audi", "Saab"]; 
+    car[car.length] = "Toyota"; 
+    document.getElementById("gk").innerHTML = car; 
+  </script>
+</body>
+WARNING !
+Adding elements with high indexes can create undefined "holes" in an array:
+Example
+const fruits = ["Banana", "Orange", "Apple"];
+fruits[6] = "Lemon";  // Creates undefined "holes" in fruits
+***
+Associative Arrays
+Many programming languages support arrays with named indexes.
+Arrays with named indexes are called associative arrays (or hashes).
+JavaScript does not support arrays with named indexes.
+In JavaScript, arrays always use numbered indexes.  
+Example
+const person = [];
+person[0] = "John";
+person[1] = "Doe";
+person[2] = 46;
+person.length;    // Will return 3
+person[0];        // Will return "John"
+
+WARNING !!
+If you use named indexes, JavaScript will redefine the array to an object.
+After that, some array methods and properties will produce incorrect results.
+Example:
+const person = [];
+person["firstName"] = "John";
+person["lastName"] = "Doe";
+person["age"] = 46;
+person.length;     // Will return 0
+person[0];         // Will return undefined
+***
+The Difference Between Arrays and Objects
+In JavaScript, arrays use numbered indexes.  
+In JavaScript, objects use named indexes.
+Arrays are a special kind of objects, with numbered indexes.
+When to Use Arrays. When to use Objects.
+JavaScript does not support associative arrays.
+You should use objects when you want the element names to be strings (text).
+You should use arrays when you want the element names to be numbers.
+***
+// Create an array with one element:
+const points = [40];
+// Create an array with 40 undefined elements:
+const points = new Array(40); //undefined
+***
+How to Recognize an Array
+<body>
+  <p id="gk"></p>
+  <script>
+    const car = ["BMW", "Audi", "Saab"]; 
+    document.getElementById("gk").innerHTML = typeof(car);  //object
+    //document.getElementById("gk").innerHTML = Array.isArray(car); //true
+    //document.getElementById("gk").innerHTML = car instanceof Array; //true
+  </script>
+</body>
+The typeof operator returns object because a JavaScript array is an object.
+***

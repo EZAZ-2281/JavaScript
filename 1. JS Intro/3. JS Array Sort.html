@@ -1,0 +1,308 @@
+JavaScript Sorting Arrays
+Sorting an Array
+The sort() method sorts an array alphabetically:
+Reversing an Array
+The reverse() method reverses the elements in an array.
+You can use it to sort an array in descending order:
+<body>
+  <p id="gk"></p>
+  <p id="gk2"></p>
+  <script>
+    const boy = ["Rahim", "Karim", "Kibria", "Jamal"]; 
+    boy.sort(); 
+    document.getElementById("gk").innerHTML = boy; 
+    boy.reverse(); 
+    document.getElementById("gk2").innerHTML = boy; 
+  </script>
+</body>
+Jamal,Karim,Kibria,Rahim
+
+Rahim,Kibria,Karim,Jamal
+***
+Numeric Sort
+By default, the sort() function sorts values as strings.
+This works well for strings ("Apple" comes before "Banana").
+However, if numbers are sorted as strings, "25" is bigger than "100", because "2" is bigger than "1".
+Because of this, the sort() method will produce incorrect result when sorting numbers.
+You can fix this by providing a compare function:
+<body>
+  <p id="gk"></p>
+  <p id="gk2"></p>
+  <script>
+    const num = [2, 5, 10, 1, 15]; 
+    document.getElementById("gk").innerHTML = num; 
+	//এই sort function কীভাবে কাজ  করে তা নিচে ব্যাখা করা হলো। 
+    num.sort(function(a, b){
+      return a - b; 
+    }); 
+    document.getElementById("gk2").innerHTML = num; 
+  </script>
+</body>
+2,5,10,1,15
+
+1,2,5,10,15
+//for descending order just write return b - a; 
+***
+The Compare Function
+The purpose of the compare function is to define an alternative sort order.
+The compare function should return a negative, zero, or positive value, depending on the arguments:
+function(a, b){return a - b}
+When the sort() function compares two values, it sends the values to the compare function, and sorts the values according to the returned (negative, zero, positive) value.
+If the result is negative a is sorted before b.
+If the result is positive b is sorted before a.
+If the result is 0 no changes are done with the sort order of the two values.
+Example:
+The compare function compares all the values in the array, two values at a time (a, b).
+When comparing 40 and 100, the sort() method calls the compare function(40, 100).
+The function calculates 40 - 100 (a - b), and since the result is negative (-60),  the sort function will sort 40 as a value lower than 100.
+***
+Sort alphabetically and numerically
+<body>
+  <h1>Sorting</h1>
+  <button onclick="myFunc1()">Sort Alphabetically</button>
+  <button onclick="myFunc2()">Sort Numerically</button>
+  <p id="gk"></p>
+  <p id="gk2"></p>
+  <p id="gk3"></p>
+  <script>
+    const num = [2, 5, 10, 1, 15, 100, 40, 25]; 
+    document.getElementById("gk").innerHTML = num; 
+
+    function myFunc1(){
+      num.sort(); 
+      document.getElementById("gk2").innerHTML = num; 
+    }
+    function myFunc2(){
+      num.sort(function(a, b){
+        return a - b; 
+      }); 
+      document.getElementById("gk3").innerHTML = num; 
+    }
+  </script>
+</body>
+2,5,10,1,15,100,40,25
+
+1,10,100,15,2,25,40,5
+
+1,2,5,10,15,25,40,100
+***
+Sorting an Array in Random Order
+<body>
+  <h1>Sorting</h1>
+  <button onclick="myFunc1()">Sort randomly</button>
+  <p id="gk"></p>
+  <p id="gk2"></p>
+  <script>
+    const num = [2, 5, 10, 1, 15, 100, 40, 25]; 
+    document.getElementById("gk").innerHTML = num; 
+
+    function myFunc1(){
+      num.sort(function(a, b){
+          return 0.5 - Math.random(); 
+      }); 
+      document.getElementById("gk2").innerHTML = num; 
+    }
+  </script>
+</body>
+2,5,10,1,15,100,40,25
+
+100,25,15,1,10,40,5,2 //it doesn't fixex. its sort randomly. 
+***
+Find the Highest (or Lowest) Array Value
+There are no built-in functions for finding the max or min value in an array.
+However, after you have sorted an array, you can use the index to obtain the highest and lowest values.
+Sorting ascending:
+<body>
+  <p id="gk"></p>
+  <p id="gk2"></p>
+  <script>
+    const num = [2, 5, 10, 1, 15, 100, 40, 25]; 
+    document.getElementById("gk").innerHTML = num; 
+    num.sort(function(a, b){
+      return a - b; 
+    })
+    document.getElementById("gk2").innerHTML = "Lowest: "+num[0]+"<br>"+"Highest: "+num[num.length-1]; 
+  </script>
+</body>
+2,5,10,1,15,100,40,25
+
+Lowest: 1
+Highest: 100
+Sorting descending:
+<body>
+  <p id="gk"></p>
+  <p id="gk2"></p>
+  <script>
+    const num = [2, 5, 10, 1, 15, 100, 40, 25]; 
+    document.getElementById("gk").innerHTML = num; 
+    num.sort(function(a, b){
+      return b - a; 
+    })
+    document.getElementById("gk2").innerHTML = "Highest: "+num[0]+"<br>"+"Lowest: "+num[num.length-1]; 
+  </script>
+</body>
+2,5,10,1,15,100,40,25
+
+Highest: 100
+Lowest: 1
+***
+Using Math.max() on an Array
+You can use Math.max.apply to find the highest number in an array:
+<body>
+  <p id="gk"></p>
+  <p id="gk2"></p>
+  <script>
+    const num = [2, 5, 10, 1, 15, 100, 40, 25]; 
+    document.getElementById("gk").innerHTML = num; 
+    function findMax(num){
+      let m = Math.max.apply(null, num); 
+      return m; 
+    }
+    let fM = findMax(num); 
+    document.getElementById("gk2").innerHTML = fM; 
+  </script>
+</body>
+Math.max.apply(null, [1, 2, 3]) is equivalent to Math.max(1, 2, 3).
+***
+Using Math.min() on an Array
+You can use Math.min.apply to find the lowest number in an array:
+<body>
+  <p id="gk"></p>
+  <p id="gk2"></p>
+  <script>
+    const num = [2, 5, 10, 1, 15, 100, 40, 25]; 
+    document.getElementById("gk").innerHTML = num; 
+    function findMin(num){
+      let m = Math.min.apply(null, num); 
+      return m; 
+    }
+    let fM = findMin(num); 
+    document.getElementById("gk2").innerHTML = fM; 
+  </script>
+</body>
+***
+My Min / Max JavaScript Methods
+The fastest solution is to use a "home made" method.
+Find max: 
+<body>
+  <p id="gk"></p>
+  <p id="gk2"></p>
+  <script>
+    const num = [2, 5, 10, 1, 15, 100, 40, 25]; 
+    document.getElementById("gk").innerHTML = num; 
+    function myFunc(num){
+       let len = num.length; 
+       //let max = -Infinity; 
+       let max = -10;
+       for(let i = 0; i < len; i++){
+         if(num[i] > max){
+           max = num[i]; 
+         }
+       }
+       return max; 
+    }
+    let fM = myFunc(num);
+    document.getElementById("gk2").innerHTML = fM;  
+  </script>
+</body>
+Find min:
+<body>
+  <p id="gk"></p>
+  <p id="gk2"></p>
+  <script>
+    const num = [2, 5, 10, 1, 15, 100, 40, 25]; 
+    document.getElementById("gk").innerHTML = num; 
+    function myFunc(num){
+       let len = num.length; 
+       //let min = Infinity; 
+       let min = 1000;
+       for(let i = 0; i < len; i++){
+         if(num[i] < min){
+           min = num[i]; 
+         }
+       }
+       return min; 
+    }
+    let fM = myFunc(num);
+    document.getElementById("gk2").innerHTML = fM;  
+  </script>
+</body>
+***
+Sorting Object Array
+<body>
+  <p id="gk"></p>
+  <p id="gk2"></p>
+  <script>
+      const names = [
+        {
+          nam: "Kibria", 
+          age: 21
+        },
+        {
+          nam: "Rahim", 
+          age: 12
+        },
+        {
+          nam: "Munna", 
+          age: 32
+        }
+      ]; 
+      names.sort(function(a, b){
+          let r = a.age - b.age; 
+          return r; 
+      });
+      function myFunc(){
+        document.getElementById("gk").innerHTML = 
+        names[0].nam+" "+names[0].age+"<br>"+
+        names[1].nam+" "+names[1].age+"<br>"+
+        names[2].nam+" "+names[2].age+"<br>"; 
+      }
+      myFunc(); 
+  </script>
+</body>
+Rahim 12
+Kibria 21
+Munna 32
+***
+আগের টার নাম্বার গুলো sort করছি। এটায় string গুলো sort করছি। 
+Comparing string properties is a little more complex:
+<body>
+
+  <h2>JavaScript Array Sort</h2>
+  <p>Click the buttons to sort car objects on type.</p>
+  
+  <button onclick="myFunction()">Sort</button>
+  <p id="demo"></p>
+  
+  <script>
+  const cars = [
+    {type:"Volvo", year:2016},
+    {type:"Saab", year:2001},
+    {type:"BMW", year:2010}
+  ];
+  
+  displayCars();
+  
+  function myFunction() {
+    cars.sort(function(a, b){
+      let x = a.type.toLowerCase();
+      let y = b.type.toLowerCase();
+      if (x < y) return -1;
+      if (x > y) return 1;
+      else return 0;
+    });
+    displayCars();
+  }
+  
+  function displayCars() {
+    document.getElementById("demo").innerHTML =
+    cars[0].type + " " + cars[0].year + "<br>" +
+    cars[1].type + " " + cars[1].year + "<br>" +
+    cars[2].type + " " + cars[2].year;
+  }
+  </script>
+</body>
+BMW 2010
+Saab 2001
+Volvo 2016
+***

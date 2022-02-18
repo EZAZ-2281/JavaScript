@@ -1,0 +1,100 @@
+Finding HTML Element by Id
+JS: 
+<body>
+  <p id="id1">Kibria</p>
+  <p id="gk"></p>
+  <script>
+    let a = document.getElementById("id1"); 
+    let b = document.getElementById("gk"); 
+    b.innerHTML = "Text of id1 is: "+a.innerHTML; 
+  </script>
+</body>
+jQuery: 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<body>
+  <p id="id1">Kibria</p>
+  <p id="gk"></p>
+  <script>
+   // $(document).ready(function(){
+      let a = $("#id1"); 
+      let b = $("#gk"); 
+      b.text("Text of id1 is: "+a[0].innerHTML); 
+   //}); 
+  </script>
+</body>
+***
+Finding HTML Elements by Tag Name
+JS: 
+<body>
+  <p>Kibria</p>
+  <p id="gk"></p>
+  <script>
+    let a = document.getElementsByTagName("p"); 
+    let b = document.getElementById("gk"); 
+    b.innerHTML = "Text of tag p is: "+a[0].innerHTML; 
+  </script>
+</body>
+jQuery: 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<body>
+  <p>Kibria</p>
+  <p id="gk"></p>
+  <script>
+    let a = $("p"); 
+    let b = $("#gk"); 
+    b.text("Text of p is: "+a[0].innerHTML); 
+  </script>
+</body>
+***
+Finding HTML Elements by Class Name
+JS: 
+<body>
+  <p class="cls1">Kibria</p>
+  <p id="gk"></p>
+  <script>
+    let a = document.getElementsByClassName("cls1"); 
+    let b = document.getElementById("gk"); 
+    b.innerHTML = "Text of p is: "+a[0].innerHTML; 
+  </script>
+</body>
+jQuery: 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<body>
+  <p class="cls1">Kibria</p>
+  <p id="gk"></p>
+  <script>
+    let a = $(".cls1"); 
+    let b = $("#gk"); 
+    b.text("Text of p is: "+a[0].innerHTML); 
+  </script>
+</body>
+***
+Finding HTML Elements by CSS Selectors
+JS: 
+<body>
+  <p class="cls">Kibria</p>
+  <p class="cls">Rahim</p>
+  <p id="gk"></p>
+  <script>
+    let a = document.querySelectorAll("p.cls"); 
+    let b = document.getElementById("gk"); 
+    b.innerHTML = "Text of first p is: "+a[0].innerHTML; 
+  </script>
+</body>
+jQuery: 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<body>
+  <p class="cls">Kibria</p>
+  <p class="cls">Rahim</p>
+  <p id="gk"></p>
+  <script>
+    let a = $("p.cls"); 
+    let b = $("#gk"); 
+    b.text("Text of first p is: "+a[0].innerHTML); 
+  </script>
+</body>
+***
+Don't forget to use this url when you use jQuery: 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+

@@ -1,0 +1,94 @@
+Set Text Content
+Set the inner text of an HTML element:
+JS: 
+<body>
+  <p id="id1">Golam kibria</p>
+  <p id="id2">Abdur Rahim</p>
+  <script>
+    let a = document.getElementById("id1"); 
+    a.textContent = "Golam kibria Ezaz"; 
+  </script>
+</body>
+jquery: 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<body>
+  <p id="id1">Golam kibria</p>
+  <p id="id2">Abdur Rahim</p>
+  <script>
+    let a = $("#id1"); 
+    a.text("Golam kibria Ezaz"); 
+  </script>
+</body>
+****
+Get Text Content
+Get the inner text of an HTML element:
+JS: 
+<body>
+  <p id="id1">Golam kibria</p>
+  <p id="id2">Abdur Rahim</p>
+  <p id="gk"></p>
+  <script>
+    let a = document.getElementById("id1").textContent; 
+    let b = document.getElementById("gk"); 
+    b.innerHTML = a; 
+  </script>
+</body>
+jquery: 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<body>
+  <p id="id1">Golam kibria</p>
+  <p id="id2">Abdur Rahim</p>
+  <p id="gk"></p>
+  <script>
+    let a = $("#id1").text();  
+    let b = $("#gk"); 
+    b.text(a); 
+  </script>
+</body>
+****
+Set HTML Content
+Set the HTML content of an element:
+JS: 
+<body>
+  <p id="id1">Golam kibria</p>
+  <p id="id2">Abdur Rahim</p>
+  <p id="gk"></p>
+  <script>
+    document.getElementById("id1").innerHTML = "Ezaz"; 
+  </script>
+</body>
+jquery: 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<body>
+  <p id="id1">Golam kibria</p>
+  <p id="id2">Abdur Rahim</p>
+  <p id="gk"></p>
+  <script>
+    $("#id1").html("Ezaz"); 
+  </script>
+</body>
+****
+Get HTML Content
+Get the HTML content of an element:
+JS: 
+<body>
+  <p id="id1">Golam kibria</p>
+  <p id="id2">Abdur Rahim</p>
+  <p id="gk"></p>
+  <script>
+      let a = document.getElementById("id1").innerHTML; 
+      document.getElementById("id2").innerHTML = a;  
+  </script>
+</body>
+jquery: 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<body>
+  <p id="id1">Golam kibria</p>
+  <p id="id2">Abdur Rahim</p>
+  <p id="gk"></p>
+  <script>
+      let a = $("#id1").html();  
+      $("#id2").html(a);
+  </script>
+</body>
+**************

@@ -1,0 +1,47 @@
+Removing HTML Elements
+JS: 
+<body>
+  <p id="id1">Golam kibria</p>
+  <p id="id2">Abdur Rahim</p>
+  <p id="gk"></p>
+  <script>
+      document.getElementById("id1").remove(); 
+  </script>
+</body>
+jquery: 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<body>
+  <p id="id1">Golam kibria</p>
+  <p id="id2">Abdur Rahim</p>
+  <p id="gk"></p>
+  <script>
+      $("#id1").remove(); 
+  </script>
+</body>
+*******
+Get Parent Element
+JS: 
+<body>
+  <p id="id1">Golam kibria</p>
+  <p id="id2">Abdur Rahim</p>
+  <p id="gk"></p>
+  <script>
+      let a = document.getElementById("id1"); 
+      let b = document.getElementById("id2"); 
+      b.innerHTML = a.parentNode.nodeName; 
+  </script>
+</body>
+jquery: 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<body>
+  <h2>Getting Parent HTML Element</h2>
+  <p id="id1">Golam kibria</p>
+  <p id="id2">Abdur Raheem</p> 
+  <p id="gk"></p> 
+  <script>
+    let a = $("#gk"); 
+    let b = $("#id2"); 
+    a.text(b.parent().prop("nodeName")); 
+  </script>  
+</body>
+***********

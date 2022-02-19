@@ -1,0 +1,63 @@
+Hiding HTML Elements
+JS: 
+<body>
+  <p id="id1">Golam kibria</p>
+  <p id="id2">Abdur Rahim</p>
+  <p id="gk"></p>
+  <script>
+    document.getElementById("id2").style.display = "none"; 
+  </script>
+</body>
+jquery: 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<body>
+  <p id="id1">Golam kibria</p>
+  <p id="id2">Abdur Rahim</p>
+  <p id="gk"></p>
+  <script>
+    $("#id2").hide();  
+  </script>
+</body>
+**********
+Showing HTML Elements
+JS: 
+<body>
+  <p id="id1" style="display: none;">Golam kibria</p>
+  <p id="id2" style="display: none;">Abdur Rahim</p>
+  <p id="gk"></p>
+  <script>
+      document.getElementById("id2").style.display = ""; 
+  </script>
+</body>
+jquery: 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<body>
+  <p id="id1" style="display: none;">Golam kibria</p>
+  <p id="id2" style="display: none;">Abdur Rahim</p>
+  <p id="gk"></p>
+  <script>
+      $("#id2").show(); 
+  </script>
+</body>
+*************
+Styling HTML Elements
+JS: 
+<body>
+  <p id="id1">Golam kibria</p>
+  <p id="id2">Abdur Rahim</p>
+  <p id="gk"></p>
+  <script>
+      document.getElementById("id1").style.fontSize = "35px"; 
+  </script>
+</body>
+jquery: 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<body>
+  <p id="id1">Golam kibria</p>
+  <p id="id2">Abdur Rahim</p>
+  <p id="gk"></p>
+  <script>
+      $("#id1").css("font-size", "35px"); 
+  </script>
+</body>
+***********
